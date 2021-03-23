@@ -1,0 +1,54 @@
+<aura:component controller="ParkingTableController">
+    <aura:attribute name="sensors" type="List"/>
+    <aura:method name="getSensorsTable" action="{!c.getSensors}" access="PUBLIC"/> 
+
+    <div class="slds-card slds-p-top--medium">
+        <header class="slds-card__header">
+            <h3 class="slds-text-heading--small">Sensors</h3>
+        </header>
+
+        <section class="slds-card__body">
+            <div id="list" class="row">
+
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Sensor Id">Sensor Id</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Base Station">Base Station</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Status">Status</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Model">Model</div>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <aura:iteration items="{!v.sensors}" var="sens">
+                    <tr class="slds-hint-parent">
+                        <td data-label="Sensor Id">
+                            <div class="slds-truncate" title="Sensor Id">{!sens.Name}</div>
+                        </td>
+                        <td data-label="Base Station">
+                            <div class="slds-truncate" title="Base Station">{!sens.Base_Station__r.Name}</div>
+                        </td>
+                        <td data-label="Status">
+                            <div class="slds-truncate" title="Status">{!sens.Status__c}</div>
+                        </td>
+                        <td data-label="Model">
+                            <div class="slds-truncate" title="Model">{!sens.Sensor_Model__c}</div>
+                        </td>
+                    </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component controller="UploadSensorsFromFile" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="file" type="ContentVersion"/>
+    <div class="slds-card slds-p-top--medium">
+        <header class="slds-card__header">
+            <h3 class="slds-text-heading--small">
+                <input type="file" class="file" aura:id="file" />
+                <lightning:button label="Create Sensors" onclick="{!c.createRecords}"/>
+            </h3>
+        </header>
+    </div>
+    <c:ParkingTable aura:id="ParkingTableComponent"/>
+</aura:component>	
